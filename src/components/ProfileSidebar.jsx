@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProfileCard.css'; // We'll create this CSS file next
+import './ProfileSidebar.module.css'; 
 
 const ProfileSidebar = ({ user }) => {
   return (

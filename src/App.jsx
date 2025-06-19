@@ -4,7 +4,7 @@ import FeedElement from './components/FeedElement';
 import ShowPost from './components/ShowPost';
 import styles from "./App.module.css";
 import Navbar from './components/NavBar';
-
+import Footer from './components/Footer';
 
 
 function App() {
@@ -65,7 +65,11 @@ function App() {
 
           <ShowPost post={show} close={()=> setShowPost(null)} />
     </div>
+    <div>
+    <Footer />
+    </div>
     </>
+    
   )
 }
 

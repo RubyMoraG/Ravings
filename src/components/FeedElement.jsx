@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "./FeedElement.module.css";
 import starOn from "../assets/starOn.png";
 import staroff from "../assets/staroff.png";  
-import ProfilePicture from "../assets/ProfilePicture.jpg"; // Replace with actual profile picture path
+import ProfilePicture from "../assets/ProfilePicture.jpg"; 
 
 
 function FeedElement({
