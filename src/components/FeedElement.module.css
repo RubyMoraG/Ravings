@@ -1,0 +1,122 @@
+form input, form textarea {
+  border-radius: 10px;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 1.1rem;
+  color: #000000;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.post {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 800px;
+  min-height: 120px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  }
+
+.entry{
+   word-break: break-word;
+   overflow-wrap: break-word;
+   white-space: normal;   
+   position:relative;
+  
+  }
+
+  .menuWrapper {
+  position: absolute;
+  top: 0rem;
+  right: 0.5rem;
+  
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+.dropdownMenu {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  z-index: 10;
+}
+.dropdownMenu button {
+  background: none;
+  border: none;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+}
+.dropdownMenu button:hover {
+  background: #efa7a7;
+  color: #fff;
+}
+  .button {
+     padding: 5px;
+
+  }
+  .buttonSub{
+    padding: 5px;
+    width: 80%;
+  }
+  .buttons {
+      margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  }
+
+  .text{
+  word-break: break-word;   
+  overflow-wrap: break-word;
+  white-space: normal; 
+  }
+
+.actions {
+    position: absolute;
+   bottom: 0.5rem;
+    right: 0.5rem;
+  
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+}
+
+.likeButton,
+.saveButton {
+  position: static;
+  margin: 0;        
+  padding: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.starIcon,
+.heartIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+
+

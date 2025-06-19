@@ -1,0 +1,20 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+ 
+  font-family: 'Franklin Gothic Medium'
+}
+.feed {
+  
+  margin-top: 20px;
+  display: flex;  
+  flex-direction: column;       /* Mostrar en fila */
+  gap: 20px;             /* Espacio entre tarjetas */
+  justify-content: center; /* Centrar tarjetas */
+}
+
+body{
+  background-color: #efa7a7;
+ 
+  color: rgb(3, 3, 3);
+}
