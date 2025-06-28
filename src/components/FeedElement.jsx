@@ -14,8 +14,6 @@ function FeedElement({
     
 }){
 
-
-  
     const [editMode, setEditMode] = useState(false);
     const [newPost, setNewPost] = useState(post.newPost);
     const [menuOpen, setMenuOpen] = useState(false);

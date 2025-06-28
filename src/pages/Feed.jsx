@@ -6,13 +6,14 @@ import styles from "../App.module.css";
 
 
 
+
 function Feed() {
 
   const [posts, setPosts] = useState([]);
   const [show, setShowPost] = useState(null);
 
   const addPost = (text) => {
-    const newpost = { id: Date.now(), text, like: false, username: "Rudinia", profilePic: "/src/assets/ProfilePicture.jpg" };
+    const newpost = { id: Date.now(), text, like: false, username: "Rudinia", profilePic: "/assets/ProfilePicture.jpg" };
     setPosts([newpost, ...posts]);
   };
   
