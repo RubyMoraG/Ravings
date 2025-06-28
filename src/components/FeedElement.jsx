@@ -13,10 +13,13 @@ function FeedElement({
     swapLike,
     
 }){
+
+
+  
     const [editMode, setEditMode] = useState(false);
     const [newPost, setNewPost] = useState(post.newPost);
     const [menuOpen, setMenuOpen] = useState(false);
-
+  
     const menuRef =useRef(null);
     useEffect(() => {
       function handleClickOutside(event){
@@ -48,7 +51,23 @@ function FeedElement({
     return (
         <div className={styles.post}>
 
+        
+          <div className={styles.profileColumn}>
+            <img
+              src={post.profilePic || ProfilePicture}
+              alt={post.username || "User"}
+              className={styles.profilePic}
+            />
+            </div>
+            <div className={styles.contentColumn}>
+            <span className={styles.username}>
+              {post.username || "User"}</span>
+                <p className={styles.text}> {post.text}</p>
+            
+            </div>
+
           
+        
 
           
 
@@ -90,7 +109,7 @@ function FeedElement({
         ):(
           
             <>
-            <p className={styles.text}> {post.text}</p>
+          
             <div ref={menuRef} >
               
             

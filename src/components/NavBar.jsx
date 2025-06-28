@@ -1,8 +1,8 @@
-import React from "react";
 import styles from "./NavBar.module.css";
 import Rsymbol from "../assets/Rsymbol.png";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({onLogout}) {
   return (
     <nav className={styles.navbar}>
         <div className={styles.logoContainer}>        
@@ -12,10 +12,11 @@ export default function Navbar() {
             className={styles.logo} />
         </div>
     <div className={styles.linksContainer}>
-      <a href="/">Home</a>
-      <a href="/feed">Feed</a>
-      <a href="/profile">Profile</a>
+      <Link to="/Feed" className={styles.link}>Feed</Link>
+      <Link to="/Profile" className={styles.link}>Profile</Link>
+      
     </div>
+    <button onClick={onLogout} className={styles.logoutButton}>Logout</button>
     </nav>
   );
 }
