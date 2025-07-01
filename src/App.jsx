@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import {Routes, Route} from 'react-router-dom';
 import Profile from './pages/Profile';
 import Login from './components/Login';
+import SignUp from "./pages/SignUp";
 
 
 
@@ -13,9 +14,13 @@ import Login from './components/Login';
 export default function App() {
    const [user, setUser] = useState(null);
 
+ 
+
   if (!user) {
     return <Login onLogin={setUser} />;
+    
   }
+
 
 return (
    <>
@@ -25,6 +30,7 @@ return (
         <Route path="/" element={<Feed />} />
         <Route path="/Feed" element={<Feed />} />
         <Route path="/Profile" element={<Profile/>} />
+        <Route path="/Signup" element={<SignUp/>}/>
       </Routes>
     
     <Footer />

@@ -16,8 +16,46 @@
 
 .loginForm {
   max-width: 300px;
-  width: 100%;
+  
+  margin: "4rem auto";
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.loginButton {
+  
+
+  background: #d98c8c;
+  color: #000000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.loginButton:hover {
+  background: #efa7a7;
+  
+}
+
+.signupButton{
+ 
+  background: #d98c8c;
+ 
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  
+  
+}
+.signupButton a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+}
+.signupButton:hover{
+  background: #efa7a7;
 }

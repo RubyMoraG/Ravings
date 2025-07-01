@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import ProfilePicture from '../assets/ProfilePicture.jpg';
 import styles from '../Profile.module.css'; 
+
 const user = {
   username: "Rudinia",
   name: "Ruby Mora",
-  bio: "This is the begining of a bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  bio: " ",
   profilePic: ProfilePicture
 };
 const Profile = () => {
@@ -13,6 +14,8 @@ const Profile = () => {
     const [tempBio, setTempBio] = useState(user.bio);
 
     const handleSave = () => {
+        if (tempBio.trim()=== "")
+          return;
         setBio(tempBio);
         setEditMode(false);
     };

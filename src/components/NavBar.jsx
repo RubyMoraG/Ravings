@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 export default function Navbar({onLogout}) {
   return (
     <nav className={styles.navbar}>
-        <div className={styles.logoContainer}>        
-            <img 
+        <div className={styles.logoContainer}>   
+          
+          <Link to="/" className={styles.link}><img 
             src={Rsymbol} 
             alt="Logo" 
-            className={styles.logo} />
+            className={styles.logo} 
+            /></Link>     
+         
         </div>
     <div className={styles.linksContainer}>
       <Link to="/Feed" className={styles.link}>Feed</Link>
