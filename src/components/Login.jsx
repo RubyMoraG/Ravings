@@ -50,14 +50,14 @@ export default function Login({ onLogin }) {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required />
-                  <br />
+          
               <input
                   type="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required />
-                  <br />
+             
               
         <button className={styles.loginButton} type="submit">Log In</button>
         <Link to="/Signup" className={styles.loginButton}>Sign Up</Link>
