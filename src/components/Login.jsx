@@ -7,14 +7,30 @@ export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+     try {
+      const API_URL = import.meta.env.VITE_APP_API_URL || "http://localhost:3001";
+      const response = await fetch(`${API_URL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
     // Aquí insertaría una API para verificar las credenciales
-    if (username === "admin" && password === "1234") {
-      onLogin(username);
-    } else {
-      alert("Incorrect username or password");
-    }
+    if (!response.ok) throw new Error("Login failed");
+    const data = await response.json();
+      console.log("Login successful", data);
+      onLogin(data.user.username);
+
+    
+  } catch (error) {
+    console.error("Login failed:", error);
+    alert("Login failed. Please try again.");
+  }
   };
 
 
@@ -34,15 +50,17 @@ export default function Login({ onLogin }) {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required />
+                  <br />
               <input
                   type="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required />
+                  <br />
               
         <button className={styles.loginButton} type="submit">Log In</button>
-        <button className={styles.signupButton} type="submit"><Link to="/SignUp">Sign Up</Link> </button>
+        <Link to="/Signup" className={styles.loginButton}>Sign Up</Link>
         
         
       </form>

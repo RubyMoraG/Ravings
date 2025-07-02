@@ -13,13 +13,18 @@ import SignUp from "./pages/SignUp";
 
 export default function App() {
    const [user, setUser] = useState(null);
-
- 
+   //fetch hacia la api para obtener los usuarios
+  
+  
 
   if (!user) {
-    return <Login onLogin={setUser} />;
-    
-  }
+    return (
+      <Routes>
+        <Route path="/" element={<Login onLogin={setUser} />} />
+        <Route path="/Signup" element={<SignUp />} />
+      </Routes>
+    );
+ }
 
 
 return (
@@ -30,7 +35,7 @@ return (
         <Route path="/" element={<Feed />} />
         <Route path="/Feed" element={<Feed />} />
         <Route path="/Profile" element={<Profile/>} />
-        <Route path="/Signup" element={<SignUp/>}/>
+      
       </Routes>
     
     <Footer />
