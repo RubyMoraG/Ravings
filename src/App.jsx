@@ -17,7 +17,7 @@ export default function App() {
     const navigate = useNavigate();
     const handleLogout = () => {
       setUser(null);
-      navigate("/"); // Redirige al usuario a la página de inicio o login
+      navigate("/"); 
     };
   
 

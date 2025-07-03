@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {createUser} from "../api/user";
-import styles from "./SignUP.module.css";
+import styles from "./SignUp.module.css";
 import Rsymbol from "../assets/Rsymbol.png";
 
 export default function SignUp() {
