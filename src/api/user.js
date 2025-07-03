@@ -12,7 +12,7 @@ export const getUsers = async () => {
             return response.json();
     };
 
-    export const createUser = async (user) => {
+export const createUser = async (user) => {
         const response = await fetch(`${API_URL}/api/users`, {
             method: "POST",
             headers: {
@@ -24,7 +24,7 @@ export const getUsers = async () => {
     };
         //convertimos la respuesta a json
      
-    export const loginUser = async (username, password) => {
+export const loginUser = async (username, password) => {
         const  response = await fetch(`${API_URL}/api/login`, {
             method: "POST",
             headers: {

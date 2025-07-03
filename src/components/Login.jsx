@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,16 +21,24 @@ export default function Login({ onLogin }) {
         body: JSON.stringify({ username, password }),
       });
 
-    // Aquí insertaría una API para verificar las credenciales
-    if (!response.ok) throw new Error("Login failed");
+    if (!response.ok) {
+      const data = await response.json();
+      if (data.message && data.message.toLowerCase().includes("invalid credentials")) {
+      setError("Username or password incorrect.");
+      } else {
+      setError(data.message || "Login failed");
+      }
+      return;
+    }
+
     const data = await response.json();
+    setError("");
       console.log("Login successful", data);
       onLogin(data.user.username);
-
     
   } catch (error) {
     console.error("Login failed:", error);
-    alert("Login failed. Please try again.");
+    setError("Login failed. Please try again.");
   }
   };
 
@@ -37,14 +46,18 @@ export default function Login({ onLogin }) {
   return (
      <>
      <div className={styles.loginWrapper}>
-     <div className={styles.logoContainer}>
+     <div className={styles.loginCard}>
+        <div className={styles.logoContainer}>
           <img
               src={Rsymbol}
               alt="Logo"
               className={styles.logo} />
-      </div>
+        </div>
+       
       <form onSubmit={handleSubmit} className={styles.loginForm}>
+      
               <input
+                  className={styles.loginEntry}
                   type="text"
                   placeholder="Username"
                   value={username}
@@ -52,6 +65,7 @@ export default function Login({ onLogin }) {
                   required />
           
               <input
+                  className={styles.loginEntry}
                   type="password"
                   placeholder="Password"
                   value={password}
@@ -61,11 +75,13 @@ export default function Login({ onLogin }) {
               
         <button className={styles.loginButton} type="submit">Log In</button>
         <Link to="/Signup" className={styles.loginButton}>Sign Up</Link>
-        
-        
+
+        <br />
+      
       </form>
-      <br />
      
+        {error && <div className={styles.error}>{error}</div>}
+      </div>
       </div>
     </>
   );
