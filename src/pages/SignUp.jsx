@@ -9,7 +9,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
- 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,16 +17,16 @@ export default function SignUp() {
       alert("Passwords do not match!");
       return;
     }
-    try {
-      await createUser({ username, email, password, confirmPassword });
-      alert("User registered successfully!");
-      navigate("/");
+    try{
+    await createUser({ username, email, password });
+    alert("User registered successfully!");
+    navigate("/");
     } catch (error) {
-      alert("Error registering user. Please try again.");
-      console.error(error);
+    alert("Error registering user. Please try again.");
+    console.error(error);
+  }
+};
   
-  };}
-
   return (
     <div className={styles.signupWrapper}>
     <div className={styles.signupCard}>

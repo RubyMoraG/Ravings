@@ -3,13 +3,16 @@ import Rsymbol from "../assets/Rsymbol.png";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 
+
+
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); setError("");
 
      try {
       const API_URL = import.meta.env.VITE_APP_API_URL || "http://localhost:3001";
@@ -22,20 +25,23 @@ export default function Login({ onLogin }) {
       });
 
     if (!response.ok) {
+  
       const data = await response.json();
-      if (data.message && data.message.toLowerCase().includes("invalid credentials")) {
-      setError("Username or password incorrect.");
-      } else {
-      setError(data.message || "Login failed");
-      }
-      return;
-    }
 
+    if (data.message && data.message.toLowerCase().includes("invalid credentials")) {
+      setError("Username or password incorrect.");
+    } else {
+      setError(data.message || "Login failed");
+    }
+    return;
+      }
+    
     const data = await response.json();
     setError("");
       console.log("Login successful", data);
-      onLogin(data.user.username);
+      onLogin(data.user.username);  
     
+
   } catch (error) {
     console.error("Login failed:", error);
     setError("Login failed. Please try again.");
